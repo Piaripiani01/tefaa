@@ -28,7 +28,7 @@
                 <nuxt-link to="pengunjung/">
                     <div class="card pengunjung rounded-5">
                         <div class="card-body">
-                            <h1 class="text-center" style="margin-top: 80px;">1 pengunjung</h1>
+                            <h1 class="text-center" style="margin-top: 80px;">{{ visitors.length }} pengunjung</h1>
                         </div>
                     </div>
                 </nuxt-link>
@@ -38,7 +38,7 @@
                 <nuxt-link to="/buku">
                     <div class="card buku rounded-5">
                         <div class="card-body">
-                            <h1 class="text-center" style="margin-top: 80px;">5 Buku</h1>
+                            <h1 class="text-center" style="margin-top: 80px;">{{ books.length }} Buku</h1>
                         </div>
                     </div>
                 </nuxt-link>
@@ -46,6 +46,28 @@
         </div>
     </div>
 </template>
+
+<script setup>
+const supabase = useSupabaseClient()
+
+const visitors = ref([])
+
+const books = ref([])
+
+const getBook = async () => {
+    const { data, error } = await supabase.from('buku').select(`*,kategori(*)`)
+    if(data) books.value = data
+}
+
+const getPengunjung = async () => {
+    const { data, error } = await supabase.from('pengunjung').select(`*, keanggotaan(*), keperluan(*)`)
+    if(data) visitors.value = data
+}
+onMounted(() =>{
+    getPengunjung()
+    getBook()
+})
+</script>
 
 <style scoped>
 .container-fluid {

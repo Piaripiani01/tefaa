@@ -40,8 +40,6 @@
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Kavoon&display=swap');
 .content {
   background-color: #8FD6F4;
 }
@@ -53,13 +51,13 @@
 
 h4{
   color:aliceblue;
-  font-family: "Kavoon", serif;
+
 
 }
 
 h2{
   color:aliceblue;
-  font-family: "Inknut Antiqua", serif;
+
 }
 
 .img-fluid{

@@ -1,9 +1,12 @@
 <template>
     <div class="container-fluid">
         <div class="row content">
-            <div class="col-lg-12">
-                <nuxt-link to="/index"></nuxt-link>
+            <div class="col-lg-12">       
+                <nuxt-link to="/"></nuxt-link>
                 <h2 class="text-center my-4">RIWAYAT PENGUNJUNG</h2>
+                <nuxt-link to="/">
+                        <i class="bi bi-caret-left-fill fs-1"></i>
+                    </nuxt-link>
                 <div class="row my-3 d-flex justify-content-center">
                     <input type="search" class="col-lg-10 form-control- form-control-lg rounded-5 "placeholder="Search..." style="background-color: #B2CDE1;">
                 </div>
@@ -19,12 +22,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1.</td>
-                            <td>Pia ripiani</td>
-                            <td>siswa</td>
-                            <td>08.00/10-04-2024</td>
-                            <td>Membaca</td>
+                        <tr v-for="(visitor,i) in visitors" :key="i">
+                            <td>{{ i+1 }}.</td>
+                            <td>{{ visitor.nama }}</td>
+                            <td>{{ visitor.keanggotaan.nama }}</td>
+                            <td>{{ visitor.tanggal }}, {{ visitor.waktu }}</td>
+                            <td>{{ visitor.keperluan.nama }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -32,6 +35,21 @@
         </div>
     </div>
 </template>
+
+<script setup>
+const supabase = useSupabaseClient()
+
+const visitors = ref([])
+
+const getPengunjung = async () => {
+    const { data, error } = await supabase.from('pengunjung').select(`*, keanggotaan(*), keperluan(*)`)
+    if(data) visitors.value = data
+}
+onMounted(() =>{
+    getPengunjung()
+})
+</script>
+
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
@@ -47,5 +65,9 @@ td {
 h2{
     color: white;
     font-family: "Irish Grover", system-ui;
+}
+
+.bi-caret-left-fill {
+    margin-left: 20px;
 }
 </style>
