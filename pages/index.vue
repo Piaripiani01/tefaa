@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid">
-        <div class="row py-5">
+        <div class="row gy-3 py-5">
             <div class="col-lg-6">
                 <nuxt-link to="/pengunjung/tambah">
                     <div class="card bg-pengunjung rounded-5">
@@ -22,7 +22,7 @@
             </div>
         </div>
         <h2>Statistik</h2>
-        <div class="row py-5">
+        <div class="row gy-3 py-5">
             <nuxt-link to="/pengunjung"></nuxt-link>
             <div class="col-lg-6">
                 <nuxt-link to="pengunjung/">

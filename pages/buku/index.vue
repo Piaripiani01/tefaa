@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row content">
             <div class="col-lg-12">
-                <h2 class="text-center my-4 just" style="color: aliceblue;">RAK BUKU</h2>
+                <h2 class="text-center my-4" style="color: aliceblue;">RAK BUKU</h2>
                 <div class="row d-flex justify-content-center">
                     <nuxt-link to="/">
                         <i class="bi bi-caret-left-fill fs-1"></i>
@@ -16,7 +16,7 @@
                 <div class="my-3 text-muted"></div>
                 <div class="row layer m-5 rounded-5">
                     <h1 class="text-center" style="color: aliceblue;">Koleksi Buku</h1>
-                    <div v-for="(book,i) in books" :key="i" class="col-lg-2">
+                    <div v-for="(book,i) in books" :key="i" class="col-lg-2 col-6">
                         <div class="card mb-3">
                             <div class="card-body">
                                 <nuxt-link :to="`/buku/${book.id}`">
@@ -97,10 +97,6 @@ h2{
 h1{
     color: white;
     font-family: "Irish Grover", system-ui;
-}
-
-.card {
-    height: 250px;
 }
 
 .bi-caret-left-fill {

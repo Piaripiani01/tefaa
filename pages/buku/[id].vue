@@ -6,18 +6,18 @@
             <div class="card">
               <h2 class="text-center">RINCIAN BUKU</h2>
               <div class="container mt-5">
-                <div class="row">
-                  <div class="col-3 p-5">
-                    <img class="img-fluid" :src="buku?.cover" alt="" style="width: 250px;">
+                <div class="row g-3 justify-content-center">
+                  <div class="col-lg-3 col-8">
+                    <img class="img-fluid" :src="buku?.cover" alt="">
                   </div>
-                  <div class="col-8">
+                  <div class="col-12">
                     <h4>Judul : {{ buku?.judul }}</h4>
                     <h4>Penulis: {{ buku?.penulis }}</h4>
                     <h4>Tahun_terbit: {{ buku?.tahun_terbit }}</h4>
                     <h4>penerbit: {{ buku?.penerbit }}</h4>
                     <h4>Kategori: {{ buku?.kategori_buku?.nama }}</h4>
-                    <h4>rak: {{buku?.rak}}</h4>
-                    <h4>deskripsi: {{ buku?.deskripsi }}</h4>
+                    <h4>Rak: {{buku?.rak}}</h4>
+                    <p>Deskripsi: {{ buku?.deskripsi }}</p>
                   </div>
                 </div>
               </div>
@@ -68,15 +68,8 @@ onMounted(() => {
     border-radius: 25px;
   }
   
-  h4{
+  h4, h2, p{
     color:aliceblue;
-  
-  
-  }
-  
-  h2{
-    color:aliceblue;
-  
   }
   
   .img-fluid{
