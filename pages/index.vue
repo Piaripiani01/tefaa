@@ -89,7 +89,7 @@ onMounted(() =>{
 }
 
 .card.bg-buku {
-    background: url('../assets/img/cari buku.jpg') no-repeat center center;
+    background: url('../assets/img/caribuku.jpg') no-repeat center center;
     background-size: cover;
 }
 
