@@ -1,4 +1,4 @@
-<template>
+<template> 
   <div class="container-fluid pb-5">
     <div class="row justify-content-center">
       <div class="col-lg-8">
@@ -15,7 +15,7 @@
               <option value="">KEANGGOTAAN</option>
               <option v-for="(member, i) in members" :key="i" :value="member.id">{{ member.nama }}</option>              
             </select>
-          </div>
+          </div>  
           <div v-if="form.keanggotaan == '1'" class="mb-3">
             <div class="row">
               <div class="col-md-4">
@@ -71,7 +71,7 @@ form {
   font-style: normal;
 }
 .container-fluid {
-  /* padding: 0;
+  /* padding: 0; 
     margin: 0; */
   background-color: #658694;
 }

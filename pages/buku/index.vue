@@ -7,7 +7,7 @@
                     <nuxt-link to="/">
                         <i class="bi bi-caret-left-fill fs-1"></i>
                     </nuxt-link>
-                    <div class="col-lg-8">
+                    <div class="col-lg-8">  
                         <form @submit.prevent="getBooks" class="my-3">
                             <input v-model="keyword" type="search" class="form-control rounded-5 cari" placeholder="SEARCH?..." style="background-color: #B0CFE5;">
                         </form>
@@ -66,7 +66,7 @@ const bookFiltered = computed (() => {
 })
 
 
-onMounted(() => {
+onMounted(() => {  
   getBooks()
   getKategori()
 })

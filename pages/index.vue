@@ -23,7 +23,7 @@
         </div>
         <h2>Statistik</h2>
         <div class="row py-5">
-            <nuxt-link to="/pengunjung/index"></nuxt-link>
+            <nuxt-link to="/pengunjung"></nuxt-link>
             <div class="col-lg-6">
                 <nuxt-link to="pengunjung/">
                     <div class="card pengunjung rounded-5">
