@@ -8,7 +8,7 @@
                         <i class="bi bi-caret-left-fill fs-1"></i>
                     </nuxt-link>
                 <div class="row my-3 d-flex justify-content-center">
-                    <input type="search" class="col-lg-10 form-control- form-control-lg rounded-5 "placeholder="Search..." style="background-color: #B2CDE1;">
+                    <input v-model=keyword type="search" class="col-lg-10 form-control- form-control-lg rounded-5 " placeholder="Search..." style="background-color: #B2CDE1;">
                 </div>
                 <div class="my-3 text-muted"></div>
                 <table class="table table-bordered">
@@ -22,7 +22,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(visitor,i) in visitors" :key="i">
+                        <tr v-for="(visitor,i) in pengunjungFiltered" :key="i">
                             <td>{{ i+1 }}.</td>
                             <td>{{ visitor.nama }}</td>
                             <td>{{ visitor.keanggotaan.nama }}</td>
@@ -40,11 +40,20 @@
 const supabase = useSupabaseClient()
 
 const visitors = ref([])
+const keyword = ref('')
 
 const getPengunjung = async () => {
     const { data, error } = await supabase.from('pengunjung').select(`*, keanggotaan(*), keperluan(*)`)
     if(data) visitors.value = data
 }
+const pengunjungFiltered = computed(() =>{
+    return visitors.value.filter((b) =>{
+        return (
+            b.nama?.toLowerCase().includes(keyword.value?.toLowerCase()) ||
+            b.keanggotaan.nama?.toLowerCase().includes(keyword.value?.toLowerCase())
+        )
+    } )
+})
 onMounted(() =>{
     getPengunjung()
 })
